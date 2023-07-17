@@ -20,7 +20,7 @@ class nk_graph_att_data(Dataset):
         self.sample_number = sample_number
         self.obs = None
         self.marker_csv_path = marker_csv_path
-        self.marker_idx = None
+
 
         super().__init__(root)
 

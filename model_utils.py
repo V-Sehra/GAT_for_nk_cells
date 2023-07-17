@@ -27,7 +27,7 @@ class att_GNN(nn.Module):
     def forward(self, data_input):
         x = data_input.x.float()
         edge_index = data_input.edge_index
-        if self.similarity_typ == 'euclid' or self.similacdrity_typ == 'euclide':
+        if self.similarity_typ == 'euclid' or self.similarity_typ == 'euclide':
             edge_att = data_input.euclid
         elif self.similarity_typ == 'cosine':
             edge_att = data_input.cosine

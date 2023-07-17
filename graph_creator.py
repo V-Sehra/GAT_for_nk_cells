@@ -19,7 +19,7 @@ import utilities
 
 # receive the argument of train or test
 parser = argparse.ArgumentParser()
-parser.add_argument("-typ", "--typ", type=str, default='train')
+parser.add_argument("-typ", "--typ", type=str, default='test')
 parser.add_argument("-n_cells", "--n_cells", type=int, default=1000)
 parser.add_argument("-num_nei", "--neiborhood_number", type=int, default=90)
 parser.add_argument("-sub_set", "--sub_set", type=int, default=100)
