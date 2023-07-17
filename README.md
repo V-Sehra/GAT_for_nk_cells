@@ -1,7 +1,7 @@
 # Graph Attention Convolutional Neural network (GAT) applied on the NK cell data set
 
 This repository shows my implementation of a GAT applied to the well-discussed NK cell data set. 
-Details regarding the dataset and the Download link can be found [here](https://zenodo.org/record/6780417). /
+Details regarding the dataset and the Download link can be found [here](https://zenodo.org/record/6780417). 
 
 The general setup is the following: 
 
