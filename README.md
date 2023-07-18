@@ -20,8 +20,7 @@ To install requirements:
 ```setup
 pip install -r requirements.txt
 ```
-the code is designed to be run on multiple GPUs if it needs to be run on a CPU-only machine, 
-please change from the torch_geometric.loader.DataListLoader to the standard Torch DataLoader 
+
 
 ## Training
 
@@ -50,3 +49,7 @@ Finally simply run the hyperparameter search:
 python hyper_search.py
 ```
 
+## Troubleshoot
+
+the code is designed to be run on multiple GPUs if it needs to be run on a CPU-only machine, 
+please change from the ```torch_geometric.loader.DataListLoader``` to the standard ```torch.DataLoader``` 
