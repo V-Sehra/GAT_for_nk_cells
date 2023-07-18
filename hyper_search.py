@@ -179,11 +179,7 @@ for f_1 in feat_f1_vec:
                             loss = criterion(output, y)
                             loss.backward()
                             optimizer.step()
-                    #model = model_utils.train_loop(model = model,
-                    #                               optimizer = optimizer,
-                    #                               epochs = epochs,
-                    #                               data_list_set = data_train,
-                    #                               loss_fkt = criterion)
+
                     if save_model_bool:
                         torch.save(model.state_dict(), os.path.join(f'{save_path}', f'{model_name}_id_{num}.pt'))
 

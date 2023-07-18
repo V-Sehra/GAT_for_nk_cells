@@ -52,12 +52,14 @@ class nk_graph_att_data(Dataset):
 
         pat_mat = []
         label_mat = []
-        fcs_file_path = f"{self.path}/{self.typ}_raw_files/"
+
+        fcs_file_path = os.path.join(f'{self.path}', f'{self.typ}_raw_files')
 
         # subsample over the patients to create the 100 files
         for file in files:
 
-            path_file = f"{fcs_file_path}/{file}"
+
+            path_file = os.path.join(f'{fcs_file_path}', f'{file}')
             marker_idx = utilities.get_marker_idx(path_file, self.marker_csv_path)
 
             label_mat.append(self.obs['label'][self.obs['fcs_filename'] == file].iloc[0])
@@ -84,7 +86,9 @@ class nk_graph_att_data(Dataset):
                             euclid=torch.tensor(1 / euc),
                             cosine = cosine_sim,
                             y=torch.tensor(np.array([label_mat[pat_id]])).flatten())
-                torch.save(data, f'{self.processed_dir}/graph_pat_{pat_id}_{batch}.pt')
+
+
+                torch.save(data, os.path.join(f'{self.processed_dir}', f'graph_pat_{pat_id}_{batch}.pt'))
                 idx += 1
 
 
@@ -95,5 +99,6 @@ class nk_graph_att_data(Dataset):
 
     def get(self, idx):
 
-        data = torch.load(f'{self.processed_dir}/{self.processed_file_names[idx]}')
+        data = torch.load(os.path.join(f'{self.processed_dir}', f'{self.processed_file_names[idx]}'))
+
         return data
