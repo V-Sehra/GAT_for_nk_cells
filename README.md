@@ -9,7 +9,7 @@ The entire dataset $M$ consists of 20 .fsc files. A single file $f_i$ contains ~
 
 $M = \bigcup_{i} f_i = \bigcup_{i,j} c_{i,j}$ 
 
-To craft a reliable data set size from each $f_i$ the measurement is subsampled, with each subsample containing $n$ cells. To ensure that the train and test data sets are still balanced per patient a fixed number of sub-samples (s_sub) is taken from each patient. This approach can lead to individual cells being in multiple train/test samples. 
+To craft a reliable data set size from each $f_i$ the measurement is subsampled, with each subsample containing $n$ cells. To ensure that the train and test data sets are still balanced per patient a fixed number of sub-samples ( $s_{sub}$ ) is taken from each patient. This approach can lead to individual cells being in multiple train/test samples. 
 
 To craft the graph structure the K-nearest neighborhood graph is applied to the individual subsamples and the edge features are either the inverse of the Euclidian distance or the cosine similarity. 
 
@@ -40,10 +40,10 @@ Now there will be a folder containing all graphs with each graph containing:
 - The cell matrix
 - The adjacency matrix
 - The adjacency feature matrix $\frac{1}{\text{euclidian}}$ 
-- The adjacency feature matrix (cosine sim)
+- The adjacency feature matrix (cosine similarity)
 - The Label
 
-Finally simply run the hyperparameter search:
+Finally, simply run the hyperparameter search:
 
 ```
 python hyper_search.py
