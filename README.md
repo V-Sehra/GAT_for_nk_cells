@@ -1,11 +1,20 @@
 # Graph Attention Convolutional Neural network (GAT) applied on the NK cell data set
 
 This repository shows my implementation of a GAT applied to the well-discussed NK cell data set. 
-Details regarding the dataset and the Download link can be found [here](https://zenodo.org/record/6780417). 
+Details regarding the dataset and the Download link can be found [here](https://zenodo.org/record/6780417). The dataset consists of 20 .fcs files each containing a single cell flow cytometry measurement and a discreet label of responder, non-responder. Typically for a flow cytometry measurement a very large number of data points are measured ~ $10^4$ data samples, but only on a small sample number.
 
 The general setup is the following: 
 
-there consists 13 Patients from which single cell flow cytometry data were measured. Thus a very large per-patient data set (~10**3 data samples. To craft this into a (geometric) deep learning-compatible training data set from each patient n_cells are used to craft a single data sample. The total number of cells per patient strongly varies. To ensure that the train and test data sets are still balanced per patient a fixed number of sub-samples (s_sub) is taken from each patient. This approach can lead to individual cells being in multiple train/test samples. 
+The entire dataset $M$ consists of 20 .fsc files. A single file $f_i$ contains ~ $10^4$ cells with a cell $c_j$ being described by 37 proteomics markers. Thus:
+
+$M = \bigcup_{i} f_i = \bigcup_{i,j} c_{i,j}$ 
+
+To craft a reliable data set size
+
+
+ 
+ 
+ To craft this into a (geometric) deep learning-compatible training data set from each patient n_cells are used to craft a single data sample. The total number of cells per patient strongly varies. To ensure that the train and test data sets are still balanced per patient a fixed number of sub-samples (s_sub) is taken from each patient. This approach can lead to individual cells being in multiple train/test samples. 
 
 To further create a graph structure on the samples a KNN graph is applied on each sample individually with the edge feature being either the inverse of the Euclidian distance or the cosine similarity.
 
